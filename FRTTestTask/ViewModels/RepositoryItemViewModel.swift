@@ -6,10 +6,9 @@
 //
 
 import Foundation
-//import UIKit
 
 struct RepositoryItemViewModel {
-    let userName: String
-    let repositoryName: String
-    let avatar: URL?
+    var userName: String
+    var repositoryName: String
+    var avatar: URL?
 }
