@@ -45,6 +45,7 @@ class RepositoriesViewController: UIViewController {
     // MARK: - User interaction
     
     @IBAction func searchButtonTapped(_ sender: Any) {
+        dataSource.isInitialRequest = true
         retrieveData()
     }
     
@@ -106,6 +107,9 @@ extension RepositoriesViewController {
                 return
             }
         
+            if self?.dataSource.totalCount == 0 {
+                self?.showOkAlert(title: "", message: "User does not have public repos.")
+            }
             self?.tableView.reloadData()
         }
     }

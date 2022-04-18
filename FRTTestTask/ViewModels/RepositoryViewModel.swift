@@ -12,11 +12,22 @@ class RepositoryViewModel: NSObject {
     // MARK: - Properties
     
     private var modelData: [Repository]? = nil
+    private var additionalDataCount = 0
     var totalCount: Int {
-        return data.count == 0 ? 0 : data.count + 20
+        return data.count == 0 ? 0 : data.count + additionalDataCount
     }
     var data = [RepositoryItemViewModel]()
     var reloadUI: ((Error?) -> ())?
+    var isInitialRequest: Bool = false {
+        willSet {
+            if newValue {
+                currentPage = 1
+                additionalDataCount = 20
+            } else {
+                additionalDataCount = 0
+            }
+        }
+    }
     
     // MARK: Infinite scrolling
     
@@ -28,7 +39,7 @@ class RepositoryViewModel: NSObject {
     
     // MARK: - Data operations
     
-    func getData(userName: String, pageNumber: Int? = nil, itemsPerPage: Int = 30) {
+    func getData(userName: String, pageNumber: Int? = nil, itemsPerPage: Int = 20) {
         guard !isFetchInProgress else {
             return
         }
@@ -49,7 +60,11 @@ class RepositoryViewModel: NSObject {
             switch result {
             case .success(let response):
                 self.data = response.map({ self.createViewModel(from: $0) })
-                self.currentPage += 1
+                if response.count >= itemsPerPage {
+                    self.currentPage += 1
+                } else {
+                    self.additionalDataCount = 0
+                }
                 self.appendFetchedData()
                 self.reloadUI?(nil)
             case .failure(let error):
