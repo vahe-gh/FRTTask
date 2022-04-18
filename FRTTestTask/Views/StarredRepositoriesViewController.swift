@@ -33,6 +33,9 @@ class StarredRepositoriesViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupNavigationBar()
         retrieveData()
     }
     
@@ -64,7 +67,7 @@ extension StarredRepositoriesViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Repositories"
+        navigationItem.title = "Starred repositories"
     }
     
 }

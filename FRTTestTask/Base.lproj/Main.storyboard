@@ -219,7 +219,7 @@
         <scene sceneID="Oeh-tj-7ZI">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fVw-hG-yFW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Search" id="qHa-Yn-ht2"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="magnifyingglass" catalog="system" id="qHa-Yn-ht2"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qDb-9b-fTL">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -238,7 +238,7 @@
         <scene sceneID="uI3-le-9kL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9WM-cW-YsX" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Starred" id="IoX-na-5yC"/>
+                    <tabBarItem key="tabBarItem" title="Starred" image="star.fill" catalog="system" id="IoX-na-5yC"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="mo0-AT-BPp">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -259,6 +259,7 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

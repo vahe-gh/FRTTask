@@ -33,8 +33,13 @@ class RepositoriesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setupNavigationBar()
         setupTableView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setupNavigationBar()
     }
     
     // MARK: - User interaction
@@ -72,7 +77,7 @@ extension RepositoriesViewController {
     }
     
     private func setupNavigationBar() {
-        navigationItem.title = "Repositories"
+        navigationItem.title = "Search for repository"
     }
     
 }
