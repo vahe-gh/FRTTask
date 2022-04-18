@@ -150,12 +150,18 @@ extension RepositoryDetailsViewController {
         }
         
         if starredDataSource.save(data: data) {
-            setStarredButtonText(for: true)
+            setStarredButtonText(for: self.dataSource.data?.isStarred ?? false)
         }
     }
     
     private func removeFromLocal() {
+        guard let data = parentData else {
+            return
+        }
         
+        if starredDataSource.delete(data: data) {
+            setStarredButtonText(for: self.dataSource.data?.isStarred ?? false)
+        }
     }
     
 }

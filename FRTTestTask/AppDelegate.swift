@@ -15,6 +15,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        setNavigationBarStyle()
+        setTabBarStyle()
         return true
     }
 
@@ -79,3 +81,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate {
+    
+    /// Disable transparent navigation bar while scrolling
+    private func setNavigationBarStyle() {
+        if #available(iOS 15, *) {
+            UINavigationBar.appearance().scrollEdgeAppearance = UINavigationBarAppearance()
+        }
+    }
+    
+    /// Disable transparent tab bar while scrolling
+    private func setTabBarStyle() {
+        if #available(iOS 15, *) {
+            UITabBar.appearance().scrollEdgeAppearance = UITabBarAppearance()
+        }
+    }
+    
+}

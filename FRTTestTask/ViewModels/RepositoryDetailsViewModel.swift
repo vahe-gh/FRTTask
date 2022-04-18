@@ -47,10 +47,12 @@ class RepositoryDetailsViewModel: NSObject {
         let creationDate = Date(from: data.creationDate)
         
         let itemViewModel = RepositoryDetailsItemViewModel(
+            id: data.id,
             language: data.language,
             description: data.description,
             creationDate: creationDate,
-            repositoryURL: repositoryURL)
+            repositoryURL: repositoryURL
+        )
         return itemViewModel
     }
     

@@ -28,8 +28,8 @@ class WebViewWithHeaderViewController: UIViewController {
         
         view.backgroundColor = UIColor.white
         
-        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissVC))
-        navigationItem.rightBarButtonItem = barButtonItem
+//        let barButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissVC))
+//        navigationItem.rightBarButtonItem = barButtonItem
         
         progressIndicator.center = CGPoint(x: view.frame.width / 2, y: view.frame.height / 2)
         progressIndicator.startAnimating()
@@ -40,12 +40,12 @@ class WebViewWithHeaderViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationItem.setHidesBackButton(true, animated: false)
+//        self.navigationItem.setHidesBackButton(true, animated: false)
         
         if let url = url {
-//            print("Web View URL : \(url.absoluteString)")
             let urlRequest = URLRequest(url: url)
             webView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+//            webView.frame = view.safeAreaLayoutGuide.layoutFrame
             webView.load(urlRequest)
             webView.uiDelegate = self
             webView.navigationDelegate = self
@@ -55,7 +55,7 @@ class WebViewWithHeaderViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        self.navigationItem.setHidesBackButton(false, animated: false)
+//        self.navigationItem.setHidesBackButton(false, animated: false)
     }
 
     // MARK: - User interaction
