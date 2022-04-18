@@ -61,6 +61,7 @@ class RepositoryViewModel: NSObject {
     private func createViewModel(from data: Repository) -> RepositoryItemViewModel {
         let avatarURL = URL(string: data.owner.avatarURL)
         let itemViewModel = RepositoryItemViewModel(
+            id: data.id,
             userName: data.owner.login,
             repositoryName: data.name,
             avatar: avatarURL

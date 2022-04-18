@@ -14,6 +14,7 @@ class RepositoryDetailsViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var creationDateLabel: UILabel!
     @IBOutlet weak var languageLabel: UILabel!
+    @IBOutlet weak var manageStarredButton: UIButton!
     
     // MARK: - Properties
     
@@ -22,7 +23,12 @@ class RepositoryDetailsViewController: UIViewController {
         let dataSource = RepositoryDetailsViewModel()
         dataSource.reloadUI = reloadDataView(error:)
         return dataSource
-    } ()
+    }()
+    private lazy var starredDataSource: StarredRepositoryViewModel = {
+        let dataSource = StarredRepositoryViewModel()
+        dataSource.reloadUI = reloadDataView(error:)
+        return dataSource
+    }()
     private let refreshControl = UIRefreshControl()
     
     // MARK: - Lifecycle
@@ -48,6 +54,19 @@ class RepositoryDetailsViewController: UIViewController {
         }
         
         openWebView(withURL: url)
+    }
+    
+    @IBAction func manageStarredButtonTapped(_ sender: Any) {
+        guard let data = dataSource.data else {
+            showOkAlert(title: "", message: AppError.blankRepository.localizedDescription)
+            return
+        }
+        
+        if data.isStarred {
+            removeFromLocal()
+        } else {
+            addToLocal()
+        }
     }
     
     private func openWebView(withURL url: URL) {
@@ -104,13 +123,39 @@ extension RepositoryDetailsViewController {
     /// Update UI after fetching data
     private func reloadData() {
         guard let data = dataSource.data else {
-            showOkAlert(title: "", message: AppError.unknownError.localizedDescription)
+            showOkAlert(title: "", message: AppError.blankRepository.localizedDescription)
             return
         }
         
         descriptionLabel.text = data.description
         languageLabel.text = data.language
         creationDateLabel.text = data.creationDate?.formattedLocally()
+        setStarredButtonText(for: data.isStarred)
+    }
+    
+    private func setStarredButtonText(for isStarred: Bool) {
+        let starredButtonText = isStarred ? "Remove from starred" : "Add to starred"
+        manageStarredButton.setTitle(starredButtonText, for: .normal)
+    }
+    
+}
+
+// MARK: - Local database operations
+
+extension RepositoryDetailsViewController {
+
+    private func addToLocal() {
+        guard let data = parentData else {
+            return
+        }
+        
+        if starredDataSource.save(data: data) {
+            setStarredButtonText(for: true)
+        }
+    }
+    
+    private func removeFromLocal() {
+        
     }
     
 }

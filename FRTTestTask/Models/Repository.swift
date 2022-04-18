@@ -8,7 +8,7 @@
 import Foundation
 
 struct Repository: Decodable {
-    let id: Int
+    let id: Int64
     let name: String
     let owner: RepositoryOwner
 }

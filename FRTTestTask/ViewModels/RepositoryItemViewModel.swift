@@ -8,6 +8,7 @@
 import Foundation
 
 struct RepositoryItemViewModel {
+    let id: Int64
     var userName: String
     var repositoryName: String
     var avatar: URL?

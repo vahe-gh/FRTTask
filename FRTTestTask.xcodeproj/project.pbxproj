@@ -58,6 +58,12 @@
 		0DF9636F280D5EE200FE923D /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF9636D280D5EE200FE923D /* Date+Extensions.swift */; };
 		0DF96372280D7EBE00FE923D /* WebViewWithHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF96371280D7EBE00FE923D /* WebViewWithHeaderViewController.swift */; };
 		0DF96373280D7EBE00FE923D /* WebViewWithHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF96371280D7EBE00FE923D /* WebViewWithHeaderViewController.swift */; };
+		0DF96375280DC70400FE923D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF96374280DC70400FE923D /* CoreDataService.swift */; };
+		0DF96376280DC70400FE923D /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF96374280DC70400FE923D /* CoreDataService.swift */; };
+		0DF96378280DCABA00FE923D /* StarredRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF96377280DCABA00FE923D /* StarredRepositoriesViewController.swift */; };
+		0DF96379280DCABA00FE923D /* StarredRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF96377280DCABA00FE923D /* StarredRepositoriesViewController.swift */; };
+		0DF9637B280DCCCD00FE923D /* StarredRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF9637A280DCCCD00FE923D /* StarredRepositoryViewModel.swift */; };
+		0DF9637C280DCCCD00FE923D /* StarredRepositoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DF9637A280DCCCD00FE923D /* StarredRepositoryViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +118,9 @@
 		0DF9636A280D559B00FE923D /* RepositoryDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailsViewModel.swift; sourceTree = "<group>"; };
 		0DF9636D280D5EE200FE923D /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		0DF96371280D7EBE00FE923D /* WebViewWithHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewWithHeaderViewController.swift; sourceTree = "<group>"; };
+		0DF96374280DC70400FE923D /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		0DF96377280DCABA00FE923D /* StarredRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoriesViewController.swift; sourceTree = "<group>"; };
+		0DF9637A280DCCCD00FE923D /* StarredRepositoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoryViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +211,7 @@
 			children = (
 				0D6451FD280B2D9D00FEDC9E /* APIService.swift */,
 				0D64520B280B442100FEDC9E /* AppError.swift */,
+				0DF96374280DC70400FE923D /* CoreDataService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -222,6 +232,7 @@
 				0D64521D280B714A00FEDC9E /* Components */,
 				0D645208280B39D500FEDC9E /* RepositoriesViewController.swift */,
 				0D645232280B975A00FEDC9E /* RepositoryDetailsViewController.swift */,
+				0DF96377280DCABA00FE923D /* StarredRepositoriesViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -233,6 +244,7 @@
 				0D645212280B5ADA00FEDC9E /* RepositoryViewModel.swift */,
 				0DF96367280D542400FE923D /* RepositoryDetailsItemViewModel.swift */,
 				0DF9636A280D559B00FE923D /* RepositoryDetailsViewModel.swift */,
+				0DF9637A280DCCCD00FE923D /* StarredRepositoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -432,6 +444,7 @@
 				0D64520C280B442100FEDC9E /* AppError.swift in Sources */,
 				0D6451CA280B2A8800FEDC9E /* AppDelegate.swift in Sources */,
 				0D645217280B659600FEDC9E /* UIViewController+Extensions.swift in Sources */,
+				0DF96378280DCABA00FE923D /* StarredRepositoriesViewController.swift in Sources */,
 				0D645205280B337C00FEDC9E /* RepositoryOwner.swift in Sources */,
 				0D64522B280B78A300FEDC9E /* LoadingTableViewCell.swift in Sources */,
 				0D645220280B717300FEDC9E /* RepositoryTableViewCell.swift in Sources */,
@@ -446,7 +459,9 @@
 				0DF96372280D7EBE00FE923D /* WebViewWithHeaderViewController.swift in Sources */,
 				0D645202280B328B00FEDC9E /* Repository.swift in Sources */,
 				0D645210280B59D400FEDC9E /* RepositoryItemViewModel.swift in Sources */,
+				0DF9637B280DCCCD00FE923D /* StarredRepositoryViewModel.swift in Sources */,
 				0D645230280B79EC00FEDC9E /* UITableViewCell+Extensions.swift in Sources */,
+				0DF96375280DC70400FE923D /* CoreDataService.swift in Sources */,
 				0D645213280B5ADA00FEDC9E /* RepositoryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,12 +477,15 @@
 				0D64520A280B39D500FEDC9E /* RepositoriesViewController.swift in Sources */,
 				0DF96369280D542400FE923D /* RepositoryDetailsItemViewModel.swift in Sources */,
 				0DF96363280D47E800FE923D /* RepositoryDetails.swift in Sources */,
+				0DF96376280DC70400FE923D /* CoreDataService.swift in Sources */,
 				0D64522C280B78A300FEDC9E /* LoadingTableViewCell.swift in Sources */,
 				0DF9636C280D559B00FE923D /* RepositoryDetailsViewModel.swift in Sources */,
 				0D645231280B79EC00FEDC9E /* UITableViewCell+Extensions.swift in Sources */,
+				0DF9637C280DCCCD00FE923D /* StarredRepositoryViewModel.swift in Sources */,
 				0DF9636F280D5EE200FE923D /* Date+Extensions.swift in Sources */,
 				0D64520D280B442100FEDC9E /* AppError.swift in Sources */,
 				0D645218280B659600FEDC9E /* UIViewController+Extensions.swift in Sources */,
+				0DF96379280DCABA00FE923D /* StarredRepositoriesViewController.swift in Sources */,
 				0D6451E4280B2A8900FEDC9E /* FRTTestTaskTests.swift in Sources */,
 				0D645226280B741400FEDC9E /* UIImageView+Extensions.swift in Sources */,
 				0D645221280B717300FEDC9E /* RepositoryTableViewCell.swift in Sources */,

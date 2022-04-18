@@ -8,21 +8,37 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Starred-->
+        <!--Starred Repositories View Controller-->
         <scene sceneID="nxY-8b-oPg">
             <objects>
-                <viewController id="xLO-HH-Gag" sceneMemberID="viewController">
+                <viewController id="xLO-HH-Gag" customClass="StarredRepositoriesViewController" customModule="FRTTestTask" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="l3P-bz-i2R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="X5l-l1-jxy">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="39x-Q8-IGy"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="X5l-l1-jxy" firstAttribute="leading" secondItem="39x-Q8-IGy" secondAttribute="leading" id="5HG-2n-Inj"/>
+                            <constraint firstItem="X5l-l1-jxy" firstAttribute="trailing" secondItem="39x-Q8-IGy" secondAttribute="trailing" id="CN4-g4-gWj"/>
+                            <constraint firstItem="X5l-l1-jxy" firstAttribute="top" secondItem="39x-Q8-IGy" secondAttribute="top" id="aZZ-Ea-KOo"/>
+                            <constraint firstItem="X5l-l1-jxy" firstAttribute="bottom" secondItem="39x-Q8-IGy" secondAttribute="bottom" id="dgg-fQ-a1G"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Starred" id="IoX-na-5yC"/>
+                    <navigationItem key="navigationItem" id="tN8-BX-4YE"/>
+                    <connections>
+                        <outlet property="tableView" destination="X5l-l1-jxy" id="UBb-Ep-gOU"/>
+                        <segue destination="ffW-qf-cyJ" kind="show" identifier="ShowRepositoryDetails" id="CMJ-AB-IYo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mPB-2R-brD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="659" y="193"/>
+            <point key="canvasLocation" x="1566.6666666666667" y="192.85714285714286"/>
         </scene>
         <!--Repositories View Controller-->
         <scene sceneID="Ise-E9-f0E">
@@ -138,12 +154,21 @@
                                     <action selector="openWebButtonTapped:" destination="ffW-qf-cyJ" eventType="touchUpInside" id="r2g-YM-XET"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7gP-Se-l1Z">
+                                <rect key="frame" x="148.5" y="313" width="117" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Add to starred"/>
+                                <connections>
+                                    <action selector="manageStarredButtonTapped:" destination="ffW-qf-cyJ" eventType="touchUpInside" id="Eq8-0w-e9M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KMJ-gc-8y8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="w7H-Dw-Wrr" firstAttribute="centerY" secondItem="93B-Qi-HVZ" secondAttribute="centerY" id="0LF-9v-qt7"/>
                             <constraint firstItem="fY4-80-b7B" firstAttribute="leading" secondItem="KMJ-gc-8y8" secondAttribute="leading" constant="20" id="0bI-le-ibh"/>
+                            <constraint firstItem="7gP-Se-l1Z" firstAttribute="centerX" secondItem="zcL-Xe-h6t" secondAttribute="centerX" id="1bU-mB-jWa"/>
                             <constraint firstItem="fY4-80-b7B" firstAttribute="top" secondItem="Qwg-85-Z80" secondAttribute="bottom" constant="25" id="331-PG-5Jx"/>
                             <constraint firstItem="KMJ-gc-8y8" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="fAP-kM-rix" secondAttribute="trailing" constant="20" id="8vI-PH-arr"/>
                             <constraint firstItem="93B-Qi-HVZ" firstAttribute="leading" secondItem="KMJ-gc-8y8" secondAttribute="leading" constant="20" id="AlA-ae-9On"/>
@@ -154,6 +179,7 @@
                             <constraint firstItem="w7H-Dw-Wrr" firstAttribute="leading" secondItem="93B-Qi-HVZ" secondAttribute="trailing" constant="8" symbolic="YES" id="bQv-zF-kMD"/>
                             <constraint firstItem="93B-Qi-HVZ" firstAttribute="top" secondItem="fY4-80-b7B" secondAttribute="bottom" constant="25" id="bq5-hG-Wfg"/>
                             <constraint firstItem="KMJ-gc-8y8" firstAttribute="trailing" secondItem="Qwg-85-Z80" secondAttribute="trailing" constant="20" id="ct8-bd-Xnr"/>
+                            <constraint firstItem="7gP-Se-l1Z" firstAttribute="top" secondItem="M56-jZ-cjm" secondAttribute="bottom" constant="25" id="gNR-lC-wR4"/>
                             <constraint firstItem="fAP-kM-rix" firstAttribute="centerY" secondItem="fY4-80-b7B" secondAttribute="centerY" id="jbF-5k-xkg"/>
                             <constraint firstItem="M56-jZ-cjm" firstAttribute="centerX" secondItem="zcL-Xe-h6t" secondAttribute="centerX" id="oFU-Gl-aS4"/>
                             <constraint firstItem="Qwg-85-Z80" firstAttribute="top" secondItem="KMJ-gc-8y8" secondAttribute="top" constant="25" id="s9u-i8-MaC"/>
@@ -164,11 +190,12 @@
                         <outlet property="creationDateLabel" destination="fAP-kM-rix" id="eF8-Ew-ib6"/>
                         <outlet property="descriptionLabel" destination="Qwg-85-Z80" id="eRo-p4-oBs"/>
                         <outlet property="languageLabel" destination="w7H-Dw-Wrr" id="sXN-5z-Tx9"/>
+                        <outlet property="manageStarredButton" destination="7gP-Se-l1Z" id="Inx-WS-EtK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nga-jf-ciR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2330.434782608696" y="-464.0625"/>
+            <point key="canvasLocation" x="2425" y="-161"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ZPx-Tm-4Qy">
@@ -181,7 +208,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="fVw-hG-yFW" kind="relationship" relationship="viewControllers" id="Tge-8S-vEw"/>
-                        <segue destination="xLO-HH-Gag" kind="relationship" relationship="viewControllers" id="xoS-D6-aEy"/>
+                        <segue destination="9WM-cW-YsX" kind="relationship" relationship="viewControllers" id="xoS-D6-aEy"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6oE-6s-6W9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -207,7 +234,29 @@
             </objects>
             <point key="canvasLocation" x="659.4202898550725" y="-464.0625"/>
         </scene>
+        <!--Starred-->
+        <scene sceneID="uI3-le-9kL">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9WM-cW-YsX" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Starred" id="IoX-na-5yC"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mo0-AT-BPp">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xLO-HH-Gag" kind="relationship" relationship="rootViewController" id="OTK-1P-I8Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="I8n-yZ-Bhf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="656.52173913043487" y="192.85714285714286"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="CMJ-AB-IYo"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">

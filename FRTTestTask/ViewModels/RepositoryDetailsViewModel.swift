@@ -23,7 +23,7 @@ class RepositoryDetailsViewModel: NSObject {
             return
         }
         guard !repositoryName.isEmpty else {
-            reloadUI?(AppError.blankRepository)
+            reloadUI?(AppError.blankRepositoryName)
             return
         }
         guard let url = URL(string: "https://api.github.com/repos/\(userName)/\(repositoryName)") else {

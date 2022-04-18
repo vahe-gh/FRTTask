@@ -12,4 +12,5 @@ struct RepositoryDetailsItemViewModel {
     var description: String
     var creationDate: Date?
     var repositoryURL: URL?
+    var isStarred: Bool = false
 }
